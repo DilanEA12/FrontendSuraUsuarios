@@ -38,8 +38,8 @@ function LoginUsuarios() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            email: login.correo,
-            password: login.contraseña,
+            correo: login.correo,
+            contraseña: login.contraseña,
           }),
         },
       );
@@ -47,7 +47,6 @@ function LoginUsuarios() {
       const dato = await respuesta.json();
 
       if (!respuesta.ok) {
-        // Si vienen errores de validación
         const mensaje = dato.mensaje
           ? dato.mensaje
           : Object.values(dato).join("\n");
